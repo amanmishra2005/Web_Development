@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dbe1ff",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#eae8e3",
+                    "on-primary-fixed-variant": "#2a4386",
+                    "on-primary-container": "#758dd5",
+                    "surface-container": "#f0eee9",
+                    "outline": "#757682",
+                    "secondary-fixed": "#dbe1ff",
+                    "on-secondary-fixed-variant": "#3e4661",
+                    "inverse-primary": "#b3c5ff",
+                    "surface-dim": "#dbdad5",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#444650",
+                    "surface-bright": "#fbf9f4",
+                    "inverse-on-surface": "#f2f1ec",
+                    "secondary-fixed-dim": "#bdc5e6",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f5f3ee",
+                    "surface": "#fbf9f4",
+                    "on-background": "#1b1c19",
+                    "outline-variant": "#c5c6d2",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb59e",
+                    "on-primary-fixed": "#00174a",
+                    "on-tertiary-fixed-variant": "#783018",
+                    "tertiary-fixed": "#ffdbd0",
+                    "surface-tint": "#435b9f",
+                    "tertiary-container": "#501300",
+                    "primary-container": "#002366",
+                    "on-secondary-fixed": "#121a33",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#555d7a",
+                    "background": "#fbf9f4",
+                    "error": "#ba1a1a",
+                    "primary": "#00113a",
+                    "surface-container-highest": "#e4e2dd",
+                    "surface-variant": "#e4e2dd",
+                    "secondary-container": "#d4dcfd",
+                    "on-tertiary-container": "#d37758",
+                    "inverse-surface": "#30312e",
+                    "on-surface": "#1b1c19",
+                    "tertiary": "#2d0700",
+                    "on-secondary-container": "#58607c",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#390b00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif-brand { font-family: 'Noto Serif', serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f4]/80 dark:bg-[#1b1c19]/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif tracking-tight text-[#00113a] dark:text-[#fbf9f4]">
+                Balaji Flour Mill
+            </div>
+<div class="hidden md:flex gap-10 items-center">
+<a class="text-slate-500 dark:text-slate-400 font-sans uppercase tracking-widest text-[11px] hover:text-[#002366] dark:hover:text-white transition-colors duration-300" href="#">Heritage</a>
+<a class="text-slate-500 dark:text-slate-400 font-sans uppercase tracking-widest text-[11px] hover:text-[#002366] dark:hover:text-white transition-colors duration-300" href="#">Our Process</a>
+<a class="text-[#00113a] dark:text-white border-b-2 border-[#00113a] pb-1 font-bold text-[11px] uppercase tracking-widest" href="#">Products</a>
+<a class="text-slate-500 dark:text-slate-400 font-sans uppercase tracking-widest text-[11px] hover:text-[#002366] dark:hover:text-white transition-colors duration-300" href="#">Supply Chain</a>
+<a class="text-slate-500 dark:text-slate-400 font-sans uppercase tracking-widest text-[11px] hover:text-[#002366] dark:hover:text-white transition-colors duration-300" href="#">Sustainability</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg text-sm font-medium tracking-wide hover:opacity-90 transition-all">
+                Request Quote
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Golden wheat field" class="w-full h-full object-cover" data-alt="Expansive golden wheat field at sunset with warm sunlight filtering through stalks and a clear blue horizon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYOi9D2IJT_zCvsLKVlWpZYNR6nuuqZJAORQnpHrCu22p7IevikuFBjj9aH_TQmT03JDAXtlHZ-nXFxLMrct1fj3z0ky1dZWE4nDlm9S0N8zdko57dSjyEbB76hFFmbCqqrBFKaanJCiXfBAF-RboX4LI0DSQ8jQvoJ9YocLH6vV2IIFI5veYAPCmzYv43yBN64-gM3H3KhQOsrQisxcIvEW_uc8vUCTzfZyhWb2TI9bvT9HQGfECr7FIozNoaOcpC8SYvESuV-vA"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 text-center max-w-4xl px-6">
+<span class="font-label text-white uppercase tracking-[0.3em] text-sm mb-6 block drop-shadow-md">Est. 1984</span>
+<h2 class="text-white text-5xl md:text-7xl font-headline italic mb-4 drop-shadow-lg">Vindhyavasini Bhog Chakki</h2>
+<h1 class="text-white text-xl md:text-2xl font-body font-light tracking-wide mb-12 drop-shadow-md">Purity in Every Grain, Excellence in Every Batch</h1>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="bg-primary text-white px-10 py-4 rounded-lg font-medium text-lg shadow-xl hover:translate-y-[-2px] transition-all duration-300">
+                    Request Bulk Quote
+                </button>
+<button class="backdrop-blur-md bg-white/10 border border-white/30 text-white px-10 py-4 rounded-lg font-medium text-lg hover:bg-white/20 transition-all duration-300">
+                    View Catalog
+                </button>
+</div>
+</div>
+</header>
+<!-- Product Grid Section -->
+<section class="py-32 px-12 max-w-screen-2xl mx-auto bg-surface">
+<div class="mb-20 text-center md:text-left md:max-w-xl">
+<p class="font-label text-primary uppercase tracking-widest text-xs mb-4">Industrial Grade Products</p>
+<h2 class="text-4xl md:text-5xl font-headline text-on-surface leading-tight">Milled with Architectural Precision</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Product 1: Chakki Atta -->
+<div class="group bg-surface-container-lowest p-8 flex flex-col h-full border border-outline-variant/10 shadow-sm transition-all hover:shadow-md">
+<div class="h-64 mb-8 overflow-hidden">
+<img alt="Chakki Atta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-quality whole wheat flour texture close-up with soft natural lighting and a linen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzvsWQZg5hSmjh8ceW_jIxcvokr-26f-Mflye2Y_rFb1FTp9O4cIFaOQQwE_OS8Bt05C1EQjnmZay-iX5L_D6wu2YPak5hikPathMLRTyBNKR8zumKSLmGLLi3wD5vDMpjrJL3trfs5sZgW_GuDIZhdakpf3SC0fjBHAGg1Gyp7nggUfaeBYCD3fg5c76HsHx8Ak4df7v8HX-xaYRFqNv3y7gOhV3M3X1MRhfSPb5v31Rk3zETcgIfb5opVmCrof8yhptsowpGl7I"/>
+</div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline">Chakki Atta</h3>
+<div class="flex flex-col items-end gap-2">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] uppercase tracking-tighter px-2 py-1 rounded-sm font-bold">Premium Quality</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Stone-ground perfection maintaining natural fiber and essential nutrients for superior nutritional value.</p>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-outline-variant/15">
+<span class="text-[10px] font-label text-outline uppercase tracking-widest">ISO/FSSAI Certified</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">arrow_forward</span>
+</div>
+</div>
+<!-- Product 2: Maida -->
+<div class="group bg-surface-container-lowest p-8 flex flex-col h-full border border-outline-variant/10 shadow-sm transition-all hover:shadow-md">
+<div class="h-64 mb-8 overflow-hidden">
+<img alt="Maida" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Fine white refined flour being sifted in a professional industrial kitchen setting with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5HendXHs-Yq3gKN2fpoTVNilEDBa9_iIDakszz3hwX8NNULHVn55wihkfeN-XgGEy2iAEzJwwQmpl4Z04aqtVMC4IOJ7NmeDSl_pVlu4yQKGbgYghyzL-XPWRbwqI14OdIIuvjpM9Cevv2LbuvNiamj7dIDw11fsRPc_SHraU_VRf3jD9YsWrn2bTBViRIEikqYz5pOi545Tg97mvInWi3-gR-sGFKHH1Dh-ZNJqosfl0IIRAFXSHV_ZFZWdV7BocWp2-CADCjV4"/>
+</div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline">Maida</h3>
+<div class="flex flex-col items-end gap-2">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] uppercase tracking-tighter px-2 py-1 rounded-sm font-bold">Industrial Grade</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Highly refined all-purpose flour optimized for bulk bakery production and high-elasticity requirements.</p>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-outline-variant/15">
+<span class="text-[10px] font-label text-outline uppercase tracking-widest">ISO/FSSAI Certified</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">arrow_forward</span>
+</div>
+</div>
+<!-- Product 3: Sooji -->
+<div class="group bg-surface-container-lowest p-8 flex flex-col h-full border border-outline-variant/10 shadow-sm transition-all hover:shadow-md">
+<div class="h-64 mb-8 overflow-hidden">
+<img alt="Sooji" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Coarse semolina grains in a wooden scoop on a dark textured surface with dramatic side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPfBI8cs21F5Ahc6dIrxpk5IiFyN1EO4BI8Cm6kBoT5CqP_wECpFKGtI2HxdLNQ796-BM_V-fMmY-Fu8fs_YUJf316bilzEEW_lLQZwN1ItnkT4lQTSw8Elqitrw1iUrr23upJx8JNwG7GLlqLSOBwo1HD6h92bq6LpK2z4pWAvZHjbDa0hW_3aqdlxwgK7fbfG6agY08A4lGvyFmzZMscJd9f8jMFrFh4xLn1Xgyf-d7vQdJ96lApVfUoITjnQ0cSuG7wkAj-tow"/>
+</div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline">Sooji</h3>
+<div class="flex flex-col items-end gap-2">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] uppercase tracking-tighter px-2 py-1 rounded-sm font-bold">Premium Quality</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Granulated semolina from the finest durum wheat, perfect for pasta manufacturers and high-end confectionery.</p>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-outline-variant/15">
+<span class="text-[10px] font-label text-outline uppercase tracking-widest">ISO/FSSAI Certified</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Manufacturing Excellence -->
+<section class="py-32 bg-surface-container">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="flex flex-col md:flex-row gap-16 items-center">
+<div class="w-full md:w-1/2">
+<div class="relative">
+<div class="absolute -top-4 -left-4 w-24 h-24 bg-primary/5 -z-10"></div>
+<img alt="Modern Mill Interior" class="w-full h-auto shadow-2xl" data-alt="Interior of a modern industrial flour mill with stainless steel silos and automated machinery in a clean environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4ZSITXGc8tLePdURmo1wkgRTOdCmb9WXoHibmhr9atCe1F6zFNUb0hz73HXRNRwv_beSVOELbqWqezL4XGZcLhqe1GAdpcf2ym3fPF600wPSZc7zFXjnxsF-a4CssC8nce4yNHdGm2Ru0lF1gIIIvWZZTr35TTm5qyjU5y3C6dVCEIE_TpT0lmTFuoDtQ2BdO3Z6y38TtKlfl8ghQblWBM2IiSQs7yG04KFMAxhSDhacoPU30rhYN6A5ReykclaWkoMLsVnaQD14"/>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<p class="font-label text-primary uppercase tracking-widest text-xs mb-4">Facility Standards</p>
+<h2 class="text-4xl font-headline text-on-surface mb-12 leading-tight">Engineering Superiority in Grain Processing</h2>
+<div class="space-y-12">
+<div class="flex gap-6 items-start">
+<div class="w-12 h-12 flex-shrink-0 bg-surface-container-lowest flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface mb-2">State-of-the-Art Technology</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Our facility utilizes automated Bühler-grade milling systems ensuring consistent particle size and moisture content.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="w-12 h-12 flex-shrink-0 bg-surface-container-lowest flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-3xl">sanitizer</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface mb-2">Hygienic Processing</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Touch-free processing cycles and medical-grade air filtration prevent any environmental contamination.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="w-12 h-12 flex-shrink-0 bg-surface-container-lowest flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary text-3xl">verified</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface mb-2">Quality Control</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">In-house laboratories conduct 24-point quality checks on every batch before it enters the supply chain.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Wholesale Contact Form Section -->
+<section class="py-32 bg-surface">
+<div class="max-w-6xl mx-auto px-12">
+<div class="bg-surface-container-lowest p-12 md:p-20 shadow-sm flex flex-col md:flex-row gap-16 border border-outline-variant/10">
+<div class="md:w-1/2">
+<p class="font-label text-primary uppercase tracking-widest text-xs mb-4">Supply Partnerships</p>
+<h2 class="text-4xl font-headline text-on-surface mb-6">Scale Your Production with Balaji</h2>
+<p class="text-on-surface-variant mb-12 leading-loose">We provide customized milling solutions for national bakery chains, industrial food processors, and large-scale distributors. Share your requirements to receive a technical specification sheet and quote.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-3 text-sm text-on-surface font-medium">
+<span class="material-symbols-outlined text-primary text-xl">local_shipping</span>
+                            Nationwide Logistics Support
+                        </div>
+<div class="flex items-center gap-3 text-sm text-on-surface font-medium">
+<span class="material-symbols-outlined text-primary text-xl">contract</span>
+                            Flexible Contract Milling
+                        </div>
+</div>
+</div>
+<div class="md:w-1/2">
+<form class="space-y-6">
+<div>
+<label class="block text-[11px] font-label uppercase tracking-widest text-slate-500 mb-2">Business Name</label>
+<input class="w-full bg-surface-container-high border-none px-4 py-4 focus:bg-surface-container-lowest focus:ring-0 focus:border-b-2 focus:border-primary transition-all placeholder:text-slate-400" placeholder="Enter company name" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-[11px] font-label uppercase tracking-widest text-slate-500 mb-2">Product Type</label>
+<select class="w-full bg-surface-container-high border-none px-4 py-4 focus:bg-surface-container-lowest focus:ring-0 focus:border-b-2 focus:border-primary transition-all">
+<option>Select product</option>
+<option>Chakki Atta</option>
+<option>Maida</option>
+<option>Sooji</option>
+</select>
+</div>
+<div>
+<label class="block text-[11px] font-label uppercase tracking-widest text-slate-500 mb-2">Monthly Volume (MT)</label>
+<input class="w-full bg-surface-container-high border-none px-4 py-4 focus:bg-surface-container-lowest focus:ring-0 focus:border-b-2 focus:border-primary transition-all placeholder:text-slate-400" placeholder="e.g. 50" type="number"/>
+</div>
+</div>
+<div>
+<label class="block text-[11px] font-label uppercase tracking-widest text-slate-500 mb-2">Requirements Message</label>
+<textarea class="w-full bg-surface-container-high border-none px-4 py-4 focus:bg-surface-container-lowest focus:ring-0 focus:border-b-2 focus:border-primary transition-all placeholder:text-slate-400" placeholder="Specify your technical requirements..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-5 font-bold uppercase tracking-[0.2em] text-sm hover:bg-primary-container transition-all" type="submit">
+                            Submit Inquiry
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#f0eee9] dark:bg-[#1b1c19] w-full mt-24">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-12 py-16 max-w-screen-2xl mx-auto">
+<div class="flex flex-col gap-4 text-center md:text-left mb-8 md:mb-0">
+<div class="text-xl font-serif text-[#00113a] dark:text-[#fbf9f4]">
+                    Balaji Flour Mill
+                </div>
+<div class="text-slate-500 dark:text-slate-400 font-sans text-sm tracking-wide">
+                    © 2024 Balaji Flour Mill. All architectural rights reserved.
+                </div>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 font-sans text-sm tracking-wide hover:underline transition-all" href="#">Privacy Policy</a>
+<a class="text-slate-500 dark:text-slate-400 font-sans text-sm tracking-wide hover:underline transition-all" href="#">Terms of Service</a>
+<a class="text-slate-500 dark:text-slate-400 font-sans text-sm tracking-wide hover:underline transition-all" href="#">Logistics Portal</a>
+<a class="text-slate-500 dark:text-slate-400 font-sans text-sm tracking-wide hover:underline transition-all" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>
