@@ -6,7 +6,7 @@
 // b = 20
 // addNumber = fnCode
 // sumResult1 = undefined
-// sumeResult2 = undefined
+// sumResult2 = undefined
 
 // Execution Phase:-
 
