@@ -1,13 +1,14 @@
-.kg-item{
+/* .kg-item{
   background-color: gold;
 }
 
 .kg-span{
   font-weight: 500;
   color: blue;
-}
+} */
 
-.heading{
+.heading {
   background-color: aquamarine;
   color: blueviolet;
+  padding-left: 10px;
 }
