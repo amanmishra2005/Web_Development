@@ -1,6 +1,7 @@
 import Food_Items from "./Components/Food_Items";
 import ErrorMessage from "./Components/Error_message";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "./Components/Container";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <>
+      <Container>
       <h1 className="heading">Healthy Foods</h1>
 
       {/* {emptyMessage} */}
@@ -41,6 +43,11 @@ function App() {
           <li key={item} className="list-group-item">{item}</li>
         ))}
       </ul> */}
+    </Container>
+
+    <Container>
+      <p>Above is the list of healthy foods that are good for your Health.</p>
+    </Container>
     </>
   );
 }

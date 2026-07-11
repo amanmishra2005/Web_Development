@@ -22,7 +22,15 @@ This repository contains my web development projects, styling exercises, and cli
 * API integration testing (JSON requests, async/await).
 
 ### 4. ⚛️ Modern Libraries (`React/`)
-* Component-driven structure practices, state management (hooks like `useState`, `useEffect`), and single-page routing structures.
+* **Core Concepts & Component Practices**:
+  * `First_React_App/` / `React_Component/`: Fundamental setups for component creation, props usage, and Vite integration.
+  * `Fragments/`: Clean templates using React Fragments to avoid redundant wrapper DOM nodes.
+  * `Mapping/`: Rendering lists dynamically from data arrays, componentizing list items, using CSS Modules (`Container.module.css`) for localized styling, and implementing component wrappers (`Container.jsx` using `props.children`).
+  * `BootStrap/`: Integrating external frameworks like Bootstrap for responsive UI components.
+* **Mini Projects (`Projects/`)**:
+  * **To-Do App (V1 & V2)**: Task creation, display, and deletion using component state.
+  * **Bharat Clock**: Live date and time updates.
+  * **Calculator**: Basic arithmetic processing with custom components.
 
 ---
 
@@ -32,3 +40,19 @@ This repository contains my web development projects, styling exercises, and cli
 You don't need any complex build configurations. Simply open the `.html` file inside your preferred browser:
 1. Double-click the `.html` file.
 2. Alternatively, use an editor extension like **VS Code Live Server** to run it on a local hot-reloading port (e.g. `http://127.0.0.1:5500`).
+
+### React Apps
+Each React project is built with Vite. To run any of them:
+1. Navigate to the project directory:
+   ```bash
+   cd React/Mapping
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open the displayed local URL (typically `http://localhost:5173`) in your browser.
