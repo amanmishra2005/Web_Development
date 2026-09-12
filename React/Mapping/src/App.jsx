@@ -19,12 +19,8 @@ function App() {
   //   "Ghee",
   // ];
 
-  let [textToShow, setTextState] = useState();
-  let [foodItem, setfoodItem] = useState([
-    "Fruits",
-    "Green Vegetables",
-    "Pulses",
-  ]);
+  // let [textToShow, setTextState] = useState();
+  let [FoodItems, setfoodItems] = useState([]);
   // if(FoodItems.length === 0){
   //   return <h3>I am still hungry.</h3>;
   // }
@@ -39,9 +35,21 @@ function App() {
 
   // console.log(`Current value of textState: ${textToShow}`);
 
-  const handleOnChange = (event) => {
-    console.log(event.target.value);
-    setTextState(event.target.value);
+  // const handleOnChange = (event) => {
+  //   console.log(event.target.value);
+  //   setTextState(event.target.value);
+  // };
+
+  const onKeyDown = (event) => {
+    if (event.key == "Enter") {
+      let newFoodItem = event.target.value;
+      event.target.value = "";
+      let newItems = [...FoodItems, newFoodItem];
+      setfoodItems(newItems);
+      // console.log('Food value entered is '+newFoodItem);
+    }
+    // console.log(event);
+    // setTextState(event.target.value);
   };
 
   return (
@@ -53,9 +61,11 @@ function App() {
         {/* {FoodItems.length === 0 ? <h3>I am still hungry.</h3> : null} */}
         {/* {FoodItems.length === 0 && <h3>I am still hungry.</h3>} */}
 
-        <ErrorMessage items={FoodItems}></ErrorMessage>
+        {/* <FoodInput handleOnChange={handleOnChange}></FoodInput> */}
 
-        <FoodInput handleOnChange={handleOnChange}></FoodInput>
+        <FoodInput handleKeydown={onKeyDown}></FoodInput>
+
+      <ErrorMessage items={FoodItems}></ErrorMessage>
 
         {/* <p>{textToShow}</p> */}
 
