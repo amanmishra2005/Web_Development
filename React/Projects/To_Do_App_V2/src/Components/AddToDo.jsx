@@ -5,17 +5,16 @@ function AddToDo({ onNewItem }) {
   const [todoName, setTodoName] = useState("");
   const [dueDate, setDuedate] = useState("");
 
-  const noOfUpdates = useRef(0);
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
 
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-    noOfUpdates.current += 1;
-  };
+  // const handleNameChange = (event) => {
+  //   setTodoName(event.target.value);
+  // };
 
-  const handleDateChange = (event) => {
-    setDuedate(event.target.value);
-    console.log(`No of Updates are :${noOfUpdates.current}`);
-  };
+  // const handleDateChange = (event) => {
+  //   setDuedate(event.target.value);
+  // };
 
   // const handleAddButtonClicked = () => {
   //   onNewItem(todoName, dueDate);
@@ -25,9 +24,12 @@ function AddToDo({ onNewItem }) {
 
   const handleAddButtonClicked = (event) => {
     event.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const dueDate = dueDateElement.current.value;
+    // console.log(`${todoName} due on ${dueDate}`);
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
     onNewItem(todoName, dueDate);
-    setTodoName("");
-    setDuedate("");
   };
 
   return (
@@ -37,13 +39,18 @@ function AddToDo({ onNewItem }) {
         <div className="col-6">
           <input
             type="text"
+            ref={todoNameElement}
             placeholder="Enter Task Here"
-            value={todoName}
-            onChange={handleNameChange}
+            // value={todoName}
+            // onChange={handleNameChange}
           />
         </div>
         <div className="col-4">
-          <input type="date" value={dueDate} onChange={handleDateChange} />
+          <input type="date" 
+          ref={dueDateElement}
+          // value={dueDate} 
+          // onChange={handleDateChange} 
+          />
         </div>
         <div className="col-2">
           <button
