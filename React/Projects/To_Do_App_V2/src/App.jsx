@@ -23,26 +23,44 @@ function App() {
 
   const [todoItems, setTodoItems] = useState([]);
 
+  // const handleNewItem = (itemName, itemDueDate) => {
+  //   const newTodoItems = [
+  //     ...todoItems,
+  //     { name: itemName, dueDate: itemDueDate },
+  //   ];
+  //   setTodoItems(newTodoItems);
+  // };
+
   const handleNewItem = (itemName, itemDueDate) => {
-    const newTodoItems = [
-      ...todoItems,
+    setTodoItems((currValue) => [
+      ...currValue,
       { name: itemName, dueDate: itemDueDate },
-    ];
-    setTodoItems(newTodoItems);
+    ]);
+
+    // setTodoItems((currValue) => {
+    // const newTodoItems = [
+    //   ...currValue,
+    //   { name: itemName, dueDate: itemDueDate },
+    // ];
+    // return newTodoItems;
+    // });
   };
 
   const handleDeleteItem = (todoItemName) => {
-    const newTodoItems = todoItems.filter(item => item.name !== todoItemName);
+    const newTodoItems = todoItems.filter((item) => item.name !== todoItemName);
     setTodoItems(newTodoItems);
-    console.log(`Item Deleted:${todoItemName}`)
-  }
+    console.log(`Item Deleted:${todoItemName}`);
+  };
 
   return (
     <center className="todo-container">
       <AppName />
       <AddToDo onNewItem={handleNewItem} />
       {todoItems.length === 0 && <WelcomeMessage></WelcomeMessage>}
-      <ToDoItems ToDoItems={todoItems} onDeleteClick={handleDeleteItem}></ToDoItems>
+      <ToDoItems
+        ToDoItems={todoItems}
+        onDeleteClick={handleDeleteItem}
+      ></ToDoItems>
     </center>
   );
 }
