@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { createContext, useReducer } from "react";
 
 export const PostList = createContext({
@@ -28,37 +29,78 @@ const PostListProvider = ({ children }) => {
     // DEFAULT_POST_LIST,
   );
 
-  const addPost = (userId, postTitle, postBody, reactions, tags) => {
-    dispatchPostList({
-      type: "ADD_POST",
-      payloads: {
-        id: Date.now(),
-        title: postTitle,
-        body: postBody,
-        reactions: reactions,
-        userId: userId,
-        tags: tags,
-      },
-    });
-  };
+  const addPost = useCallback(
+    (userId, postTitle, postBody, reactions, tags) => {
+      dispatchPostList({
+        type: "ADD_POST",
+        payloads: {
+          id: Date.now(),
+          title: postTitle,
+          body: postBody,
+          reactions: reactions,
+          userId: userId,
+          tags: tags,
+        },
+      });
+    },
+    [dispatchPostList],
+  );
 
-  const addInitialPosts = (posts) => {
-    dispatchPostList({
-      type: "ADD_INITIAL_POSTS",
-      payloads: {
-        posts,
-      },
-    });
-  };
+  // const addPost = (userId, postTitle, postBody, reactions, tags) => {
+  //   dispatchPostList({
+  //     type: "ADD_POST",
+  //     payloads: {
+  //       id: Date.now(),
+  //       title: postTitle,
+  //       body: postBody,
+  //       reactions: reactions,
+  //       userId: userId,
+  //       tags: tags,
+  //     },
+  //   });
+  // };
 
-  const deletePost = (postId) => {
-    dispatchPostList({
-      type: "DELETE_POST",
-      payloads: {
-        postId,
-      },
-    });
-  };
+  const addInitialPosts = useCallback(
+    (posts) => {
+      dispatchPostList({
+        type: "ADD_INITIAL_POSTS",
+        payloads: {
+          posts,
+        },
+      });
+    },
+    [dispatchPostList],
+  );
+
+  // const addInitialPosts = (posts) => {
+  //   dispatchPostList({
+  //     type: "ADD_INITIAL_POSTS",
+  //     payloads: {
+  //       posts,
+  //     },
+  //   });
+  // };
+
+  const deletePost = useCallback(
+    (postId) => {
+      dispatchPostList({
+        type: "DELETE_POST",
+        payloads: {
+          postId,
+        },
+      });
+    },
+    [dispatchPostList],
+  );
+
+  // const deletePost = (postId) => {
+  //   dispatchPostList({
+  //     type: "DELETE_POST",
+  //     payloads: {
+  //       postId,
+  //     },
+  //   });
+  // };
 
   return (
     <PostList.Provider
