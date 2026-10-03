@@ -14,6 +14,7 @@ hostRouter.get("/add-home", (req, res, next) => {
 
 hostRouter.post("/add-home", (req, res, next) => {
   res.sendFile(path.join(rootDir, 'views', 'homeAdded.html'));
+  console.log(req.body);
 })
 
 module.exports = hostRouter;
