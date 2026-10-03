@@ -11,10 +11,10 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "nodemon": "^3.1.7",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13"
+    "autoprefixer": "^10.6.1",
+    "nodemon": "^1.14.10",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^3.4.19"
   },
   "dependencies": {
     "body-parser": "^1.20.3",
