@@ -3,7 +3,7 @@ const path = require('path');
 // External Module
 const express = require('express');
 // Local Module
-const rootDir = require('../utils/pathUtil');
+const rootDir = require('../utils/pathUtils');
 
 const contactRouter = express.Router();
 
