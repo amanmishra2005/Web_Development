@@ -12,6 +12,8 @@ const rootDir = require("./utils/pathUtils");
 const app = express();
 
 app.use(express.urlencoded());
+
+app.use(express.urlencoded());
 app.use(userRouter);
 app.use("/host", hostRouter);
 
