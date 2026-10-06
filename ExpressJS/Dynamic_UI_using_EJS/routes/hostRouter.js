@@ -4,7 +4,10 @@ const express = require('express');
 const hostRouter = express.Router();
 
 hostRouter.get("/add-home", (req, res, next) => {
-  res.render("addHome", { pageTitle: "Add Home to Airbnb" });
+  res.render("addHome", {
+    pageTitle: "Add Home to Airbnb",
+    currentPath: req.baseUrl + req.path,
+  });
 });
 
 const registeredHomes = [];
@@ -41,12 +44,16 @@ hostRouter.post("/add-home", (req, res, next) => {
   ) {
     return res.status(400).render("addHome", {
       pageTitle: "Add Home to Airbnb",
+      currentPath: "addHome",
       error: "Please complete every field with valid values.",
     });
   }
 
   registeredHomes.push({ homeName, location, imageUrl, description, price, maxGuests, ratings });
-  res.render("homeAdded", { pageTitle: "Home Added Successfully" });
+  res.render("homeAdded", {
+    pageTitle: "Home Added Successfully",
+    currentPath: "homeAdded",
+  });
 });
 
 exports.hostRouter = hostRouter;

@@ -4,16 +4,16 @@
       <li>
         <a
           href="/"
-          class="<%= currentPath === '/' ? 'bg-red-700 font-semibold' : 'hover:bg-red-400' %> rounded px-4 py-2 transition duration-300"
-          <%= currentPath === '/' ? 'aria-current="page"' : '' %>
+          class="<%= currentPath === '/' || currentPath === 'Home' ? 'bg-red-700 font-semibold' : 'hover:bg-red-400' %> rounded px-4 py-2 transition duration-300"
+          <% if (currentPath === '/' || currentPath === 'Home') { %>aria-current="page"<% } %>
           >Home</a
         >
       </li>
       <li>
         <a
           href="/host/add-home"
-          class="<%= currentPath.startsWith('/host/add-home') ? 'bg-red-700 font-semibold' : 'hover:bg-red-400' %> rounded px-4 py-2 transition duration-300"
-          <%= currentPath.startsWith('/host/add-home') ? 'aria-current="page"' : '' %>
+          class="<%= currentPath === 'addHome' || currentPath === 'homeAdded' || currentPath.startsWith('/host/add-home') ? 'bg-red-700 font-semibold' : 'hover:bg-red-400' %> rounded px-4 py-2 transition duration-300"
+          <% if (currentPath === 'addHome' || currentPath === 'homeAdded' || currentPath.startsWith('/host/add-home')) { %>aria-current="page"<% } %>
           >Add Home</a
         >
       </li>
