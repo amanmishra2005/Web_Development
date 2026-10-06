@@ -12,14 +12,24 @@ const registeredHomes = [];
 hostRouter.post("/add-home", (req, res, next) => {
   const homeName = req.body.homeName?.trim();
   const location = req.body.location?.trim();
+  const imageUrl = req.body.imageUrl?.trim();
   const description = req.body.description?.trim();
   const price = Number(req.body.price);
   const maxGuests = Number(req.body.maxGuests);
   const ratings = Number(req.body.ratings);
+  let validImageUrl = false;
+
+  try {
+    const parsedImageUrl = new URL(imageUrl);
+    validImageUrl = ["http:", "https:"].includes(parsedImageUrl.protocol);
+  } catch {
+    validImageUrl = false;
+  }
 
   if (
     !homeName ||
     !location ||
+    !validImageUrl ||
     !description ||
     !Number.isFinite(price) ||
     price <= 0 ||
@@ -35,7 +45,7 @@ hostRouter.post("/add-home", (req, res, next) => {
     });
   }
 
-  registeredHomes.push({ homeName, location, description, price, maxGuests, ratings });
+  registeredHomes.push({ homeName, location, imageUrl, description, price, maxGuests, ratings });
   res.render("homeAdded", { pageTitle: "Home Added Successfully" });
 });
 
