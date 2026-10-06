@@ -1,0 +1,30 @@
+<%- include('partials/head') %>
+  </head>
+  <body>
+    <%- include('partials/nav') %>
+    <main class="container mx-auto mt-10 max-w-3xl rounded-lg bg-white p-8 shadow-lg">
+      <h2 class="mb-6 text-center text-3xl font-bold text-red-500">
+        Here are our registered homes:
+      </h2>
+      <% if (registeredHomes.length === 0) { %>
+        <p class="rounded-lg bg-gray-100 p-6 text-center text-gray-600">
+          No homes have been registered yet. Add your home to see it listed here.
+        </p>
+      <% } else { %>
+        <ul class="grid gap-4 sm:grid-cols-2">
+          <% registeredHomes.forEach(home => { %>
+            <li class="rounded-lg bg-gray-100 p-5 shadow-md transition duration-300 hover:shadow-lg">
+              <h3 class="text-xl font-bold text-gray-800"><%= home.homeName %></h3>
+              <p class="mt-1 text-gray-600"><%= home.location %></p>
+              <p class="mt-3 text-gray-700"><%= home.description %></p>
+              <div class="mt-4 flex justify-between border-t pt-3 text-sm text-gray-700">
+                <span>₹<%= home.price.toFixed(2) %> / night</span>
+                <span>Up to <%= home.maxGuests %> guests</span>
+              </div>
+            </li>
+          <% }) %>
+        </ul>
+      <% } %>
+    </main>
+  </body>
+</html>

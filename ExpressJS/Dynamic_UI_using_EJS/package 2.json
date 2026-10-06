@@ -1,0 +1,24 @@
+{
+  "name": "chapter-10---airbnb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "tailwindcss -i ./views/input.css -o ./public/output.css --watch",
+    "start": "nodemon app.js & npm run tailwind"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.6.1",
+    "nodemon": "^1.14.10",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^3.4.19"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.0"
+  }
+}
