@@ -15,6 +15,7 @@ hostRouter.post("/add-home", (req, res, next) => {
   const description = req.body.description?.trim();
   const price = Number(req.body.price);
   const maxGuests = Number(req.body.maxGuests);
+  const ratings = Number(req.body.ratings);
 
   if (
     !homeName ||
@@ -23,7 +24,10 @@ hostRouter.post("/add-home", (req, res, next) => {
     !Number.isFinite(price) ||
     price <= 0 ||
     !Number.isInteger(maxGuests) ||
-    maxGuests < 1
+    maxGuests < 1 ||
+    !Number.isFinite(ratings) ||
+    ratings < 1 ||
+    ratings > 5
   ) {
     return res.status(400).render("addHome", {
       pageTitle: "Add Home to Airbnb",
@@ -31,7 +35,7 @@ hostRouter.post("/add-home", (req, res, next) => {
     });
   }
 
-  registeredHomes.push({ homeName, location, description, price, maxGuests });
+  registeredHomes.push({ homeName, location, description, price, maxGuests, ratings });
   res.render("homeAdded", { pageTitle: "Home Added Successfully" });
 });
 

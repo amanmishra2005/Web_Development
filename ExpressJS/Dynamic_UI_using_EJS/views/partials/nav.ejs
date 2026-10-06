@@ -4,14 +4,16 @@
       <li>
         <a
           href="/"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          class="<%= currentPath === '/' ? 'bg-red-700 font-semibold' : 'hover:bg-red-400' %> rounded px-4 py-2 transition duration-300"
+          <%= currentPath === '/' ? 'aria-current="page"' : '' %>
           >Go to Home</a
         >
       </li>
       <li>
         <a
           href="/host/add-home"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          class="<%= currentPath.startsWith('/host/add-home') ? 'bg-red-700 font-semibold' : 'hover:bg-red-400' %> rounded px-4 py-2 transition duration-300"
+          <%= currentPath.startsWith('/host/add-home') ? 'aria-current="page"' : '' %>
           >Add Home</a
         >
       </li>

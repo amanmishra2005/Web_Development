@@ -15,6 +15,10 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(express.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
 app.use(userRouter);
 app.use("/host", hostRouter);
 
