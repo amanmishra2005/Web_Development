@@ -1,0 +1,54 @@
+<%- include('partials/head') %>
+  </head>
+  <body>
+    <%- include('partials/nav') %>
+    <main class="container mx-auto mt-8 max-w-2xl rounded-lg bg-white p-8 shadow-md">
+      <h1 class="mb-6 text-center text-3xl font-bold text-gray-800">Register Your Home on Airbnb</h1>
+      <form action="/host/add-home" method="POST" class="mx-auto grid max-w-lg gap-5">
+        <% if (typeof error !== "undefined") { %>
+          <p role="alert" class="rounded-md bg-red-100 p-3 text-red-700"><%= error %></p>
+        <% } %>
+        <div>
+          <label for="homeName" class="mb-1 block font-medium text-gray-700">Home name</label>
+          <input id="homeName" type="text" name="homeName" placeholder="e.g. Sunny Beach Cottage" required
+            class="w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500" />
+        </div>
+        <div>
+          <label for="location" class="mb-1 block font-medium text-gray-700">Location</label>
+          <input id="location" type="text" name="location" placeholder="City, country" required
+            class="w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500" />
+        </div>
+        <div>
+          <label for="imageUrl" class="mb-1 block font-medium text-gray-700">Home image URL</label>
+          <input id="imageUrl" type="url" name="imageUrl" placeholder="https://example.com/home.jpg" required
+            class="w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500" />
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="price" class="mb-1 block font-medium text-gray-700">Price per night (₹)</label>
+            <input id="price" type="number" name="price" min="1" step="0.01" placeholder="120" required
+              class="w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500" />
+          </div>
+          <div>
+            <label for="maxGuests" class="mb-1 block font-medium text-gray-700">Maximum guests</label>
+            <input id="maxGuests" type="number" name="maxGuests" min="1" step="1" placeholder="4" required
+              class="w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500" />
+          </div>
+        </div>
+        <div>
+          <label for="description" class="mb-1 block font-medium text-gray-700">Description</label>
+          <textarea id="description" name="description" rows="4" placeholder="Tell guests what makes this home special" required
+            class="w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+        </div>
+        <div>
+          <label for="ratings" class="mb-1 block font-medium text-gray-700">Rating (out of 5)</label>
+            <input id="ratings" type="number" name="ratings" min="1" max="5" step="0.1" placeholder="4.5" required
+              class="w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500" />
+        </div>
+        <button type="submit" class="w-full rounded-md bg-red-500 py-2 font-semibold text-white transition duration-300 hover:bg-red-600">
+          Register Home
+        </button>
+      </form>
+    </main>
+  </body>
+</html>
