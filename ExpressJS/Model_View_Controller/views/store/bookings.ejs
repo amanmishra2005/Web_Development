@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+    <main class="container mx-auto mt-10 max-w-6xl rounded-lg bg-white p-8 shadow-lg">
+      <h1 class="mb-6 text-center text-3xl font-bold text-red-500">My Bookings</h1>
+      <% if (bookings.length === 0) { %>
+        <p class="text-center text-gray-700">You have no bookings yet. Explore homes to plan your stay.</p>
+        <p class="mt-4 text-center"><a href="/homes" class="font-semibold text-red-500 hover:underline">Explore Homes</a></p>
+      <% } else { %>
+        <div class="flex flex-wrap justify-center gap-6">
+          <% bookings.forEach(booking => { %>
+            <article class="w-full max-w-sm overflow-hidden rounded-lg border bg-white shadow">
+              <img
+                src="<%= booking.photoUrl && /^https?:\/\//i.test(booking.photoUrl) ? booking.photoUrl : '/home-placeholder.svg' %>"
+                alt="<%= booking.houseName %>"
+                class="h-48 w-full object-cover"
+                onerror="this.onerror=null;this.src='/home-placeholder.svg';">
+              <div class="p-4">
+                <h2 class="text-xl font-semibold"><%= booking.houseName %></h2>
+                <p class="text-gray-600"><%= booking.location %></p>
+                <p class="mt-2"><strong>Check-in:</strong> <%= booking.checkIn %></p>
+                <p><strong>Check-out:</strong> <%= booking.checkOut %></p>
+                <p><strong>Guests:</strong> <%= booking.guests %></p>
+                <p class="mt-2 font-bold text-red-500">₹<%= booking.price %> per night</p>
+              </div>
+            </article>
+          <% }) %>
+        </div>
+      <% } %>
+    </main>
+  </body>
+</html>

@@ -1,26 +1,29 @@
-const path = require("path");
+// Core Module
+const path = require('path');
 
-const express = require("express");
+// External Module
+const express = require('express');
 
-const userRouter = require("./routes/userRouter");
-const { hostRouter } = require("./routes/hostRouter");
-const rootDir = require("./utils/pathUtils");
+//Local Module
+const storeRouter = require("./routes/storeRouter")
+const hostRouter = require("./routes/hostRouter")
+const rootDir = require("./utils/pathUtil");
 const errorsController = require("./controllers/errors");
 
 const app = express();
 
-app.set("view engine", "ejs");
-app.set("views", "views");
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
-app.use(express.urlencoded({ extended: false }));
-app.use(userRouter);
+app.use(express.urlencoded());
+app.use(storeRouter);
 app.use("/host", hostRouter);
 
-app.use(express.static(path.join(rootDir, "public")));
+app.use(express.static(path.join(rootDir, 'public')))
 
 app.use(errorsController.pageNotFound);
 
-const PORT = 3001;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on address http://localhost:${PORT}`);
 });
