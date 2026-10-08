@@ -31,29 +31,6 @@ module.exports = class Home {
     });
   }
 
-  static fetchFavourites(callback) {
-    const favouritesPath = path.join(rootDir, "data", "favourites.json");
-    fs.readFile(favouritesPath, "utf8", (err, data) => {
-      if (err && err.code === "ENOENT") {
-        return callback(null, []);
-      }
-      if (err) {
-        return callback(err);
-      }
-
-      try {
-        callback(null, JSON.parse(data));
-      } catch (parseError) {
-        callback(parseError);
-      }
-    });
-  }
-
-  static saveFavourites(favourites, callback) {
-    const favouritesPath = path.join(rootDir, "data", "favourites.json");
-    fs.writeFile(favouritesPath, JSON.stringify(favourites, null, 2), callback);
-  }
-
   static fetchBookings(callback) {
     const bookingsPath = path.join(rootDir, "data", "bookings.json");
     fs.readFile(bookingsPath, "utf8", (err, data) => {

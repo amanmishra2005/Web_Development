@@ -1,8 +1,9 @@
 const Home = require("../models/home");
+const Favourite = require("../models/favourite");
 
 exports.getIndex = (req, res, next) => {
   Home.fetchAll((registeredHomes) => {
-    Home.fetchFavourites((error, favouriteIndexes) => {
+    Favourite.fetchAll((error, favouriteIndexes) => {
       if (error) {
         return next(error);
       }
@@ -19,7 +20,7 @@ exports.getIndex = (req, res, next) => {
 
 exports.getHomes = (req, res, next) => {
   Home.fetchAll((registeredHomes) => {
-    Home.fetchFavourites((error, favouriteIndexes) => {
+    Favourite.fetchAll((error, favouriteIndexes) => {
       if (error) {
         return next(error);
       }
@@ -50,7 +51,7 @@ exports.getBookings = (req, res, next) => {
 
 exports.getFavouriteList = (req, res, next) => {
   Home.fetchAll((registeredHomes) => {
-    Home.fetchFavourites((error, favouriteIndexes) => {
+    Favourite.fetchAll((error, favouriteIndexes) => {
       if (error) {
         return next(error);
       }
@@ -81,27 +82,17 @@ exports.postAddFavourite = (req, res, next) => {
       });
     }
 
-    Home.fetchFavourites((error, favourites) => {
+    Favourite.add(homeIndex, (error) => {
       if (error) {
         return next(error);
       }
 
-      if (!favourites.includes(homeIndex)) {
-        favourites.push(homeIndex);
-      }
-
-      Home.saveFavourites(favourites, (saveError) => {
-        if (saveError) {
-          return next(saveError);
-        }
-
-        const homeDetailPath = `/homes/${registeredHomes[homeIndex].id}`;
-        const returnTo =
-          ["/", "/homes", homeDetailPath].includes(req.body.returnTo)
-            ? req.body.returnTo
-            : "/homes";
-        res.redirect(returnTo);
-      });
+      const homeDetailPath = `/homes/${registeredHomes[homeIndex].id}`;
+      const returnTo =
+        ["/", "/homes", homeDetailPath].includes(req.body.returnTo)
+          ? req.body.returnTo
+          : "/homes";
+      res.redirect(returnTo);
     });
   });
 };
@@ -118,22 +109,14 @@ exports.postRemoveFavourite = (req, res, next) => {
       return res.status(404).send("Home not found.");
     }
 
-    Home.fetchFavourites((error, favourites) => {
+    Favourite.remove(homeIndex, (error) => {
       if (error) {
         return next(error);
       }
 
-      Home.saveFavourites(
-        favourites.filter((index) => index !== homeIndex),
-        (saveError) => {
-          if (saveError) {
-            return next(saveError);
-          }
-          const homeDetailPath = `/homes/${home.id}`;
-          res.redirect(
-            req.body.returnTo === homeDetailPath ? homeDetailPath : "/favourites",
-          );
-        },
+      const homeDetailPath = `/homes/${home.id}`;
+      res.redirect(
+        req.body.returnTo === homeDetailPath ? homeDetailPath : "/favourites",
       );
     });
   });
@@ -228,7 +211,7 @@ exports.getHomeDetails = (req, res, next) => {
       return res.redirect("/homes");
     }
 
-    Home.fetchFavourites((error, favouriteIndexes) => {
+    Favourite.fetchAll((error, favouriteIndexes) => {
       if (error) {
         return next(error);
       }
