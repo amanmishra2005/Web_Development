@@ -1,0 +1,38 @@
+[
+  {
+    "houseName": "Mishra Sadan",
+    "price": "5000",
+    "location": "Gorakhpur",
+    "rating": "5",
+    "description": "A spacious family stay with elegant interiors, a quiet balcony, and a warm, welcoming atmosphere for a relaxed vacation.",
+    "photoUrl": "/images/house1.png",
+    "id": "0.04935090972613864"
+  },
+  {
+    "houseName": "Aman Mishra",
+    "price": "1299",
+    "location": "Ghaziabad",
+    "rating": "4",
+    "description": "A modern city home featuring cozy rooms, clean interiors, and all the essentials for a comfortable short stay.",
+    "photoUrl": "/images/house2.png",
+    "id": "0.04279090972665764"
+  },
+  {
+    "houseName": "Gurukul",
+    "price": "999",
+    "location": "Ghaziabad",
+    "rating": "4",
+    "description": "A charming budget-friendly retreat with natural light, comfy bedding, and a peaceful neighborhood feel.",
+    "photoUrl": "/images/house3.png",
+    "id": "0.04279090936513864"
+  },
+  {
+    "houseName": "Mishra Niwas",
+    "price": "3000",
+    "location": "Delhi",
+    "rating": "4.5",
+    "description": "A stylish urban home with premium furnishings, a great location, and a relaxing ambiance for city travelers.",
+    "photoUrl": "/images/house4.png",
+    "id": "0.04279090972613864"
+  }
+]
