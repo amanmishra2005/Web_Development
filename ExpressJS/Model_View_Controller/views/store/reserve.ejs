@@ -1,0 +1,25 @@
+<%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+    <main class="container mx-auto mt-8 p-6 max-w-2xl bg-white rounded-lg shadow-md">
+      <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">Book <%= home.houseName %></h1>
+      <p class="text-center text-gray-600 mb-6"><%= home.location %> · ₹<%= home.price %> per night</p>
+
+      <% if (errorMessage) { %>
+        <p class="mb-4 rounded bg-red-100 p-3 text-red-700" role="alert"><%= errorMessage %></p>
+      <% } %>
+
+      <form action="/bookings" method="POST" class="max-w-md mx-auto">
+        <input type="hidden" name="homeIndex" value="<%= homeIndex %>">
+        <label for="checkIn" class="mb-1 block font-medium text-gray-700">Check-in date</label>
+        <input id="checkIn" type="date" name="checkIn" required class="mb-4 w-full rounded-md border px-4 py-2">
+        <label for="checkOut" class="mb-1 block font-medium text-gray-700">Check-out date</label>
+        <input id="checkOut" type="date" name="checkOut" required class="mb-4 w-full rounded-md border px-4 py-2">
+        <label for="guests" class="mb-1 block font-medium text-gray-700">Number of guests</label>
+        <input id="guests" type="number" name="guests" min="1" value="1" required class="mb-5 w-full rounded-md border px-4 py-2">
+        <button type="submit" class="w-full rounded-md bg-red-500 px-4 py-2 font-semibold text-white hover:bg-red-600">Confirm Booking</button>
+      </form>
+    </main>
+  </body>
+</html>

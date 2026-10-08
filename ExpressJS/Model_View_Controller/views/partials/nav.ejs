@@ -4,17 +4,43 @@
       <li>
         <a
           href="/"
-          class="<%= currentPath === '/' || currentPath === 'Home' ? 'bg-red-700 font-semibold' : 'hover:bg-red-400' %> rounded px-4 py-2 transition duration-300"
-          <% if (currentPath === '/' || currentPath === 'Home') { %>aria-current="page"<% } %>
-          >Home</a
+          class="<%= currentPage === 'index' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >Airbnb</a
+        >
+      </li>
+      <li>
+        <a
+          href="/homes"
+          class="<%= currentPage === 'homes' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >Explore Homes</a
+        >
+      </li>
+      <li>
+        <a
+          href="/favourites"
+          class="<%= currentPage === 'favourites' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >Favourites</a
+        >
+      </li>
+      <li>
+        <a
+          href="/bookings"
+          class="<%= currentPage === 'bookings' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >Bookings</a
+        >
+      </li>
+      <li>
+        <a
+          href="/host/host-home-list"
+          class="<%= currentPage === 'host-homes' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >Host Homes</a
         >
       </li>
       <li>
         <a
           href="/host/add-home"
-          class="<%= currentPath === 'addHome' || currentPath === 'homeAdded' || currentPath.startsWith('/host/add-home') ? 'bg-red-700 font-semibold' : 'hover:bg-red-400' %> rounded px-4 py-2 transition duration-300"
-          <% if (currentPath === 'addHome' || currentPath === 'homeAdded' || currentPath.startsWith('/host/add-home')) { %>aria-current="page"<% } %>
-          >Add Home</a
+          class="<%= currentPage === 'addHome' ? 'bg-red-400' : 'hover:bg-red-400' %> py-2 px-4 rounded transition duration-300"
+          >Add a Home</a
         >
       </li>
     </ul>
