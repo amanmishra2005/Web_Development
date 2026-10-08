@@ -40,15 +40,7 @@
                       </div>
                   </div>
 
-                  <form action="<%= isFavourite ? `/favourites/${homeIndex}/remove` : `/favourites/${homeIndex}` %>" method="POST">
-                      <input type="hidden" name="returnTo" value="/homes/<%= home.id %>">
-                      <button
-                          type="submit"
-                          class="inline-flex items-center justify-center rounded-md px-4 py-2 font-semibold <%= isFavourite ? 'bg-red-100 text-red-700' : 'bg-pink-100 text-red-700 hover:bg-pink-200' %>">
-                          <span aria-hidden="true"><%= isFavourite ? '♥' : '♡' %></span>
-                          <%= isFavourite ? 'Saved to favourites' : 'Add to favourites' %>
-                      </button>
-                  </form>
+                  <%- include('../partials/favourite-button', { homeIndex, isFavourite, returnTo: `/homes/${home.id}` }) %>
               </div>
           </div>
       </main>
