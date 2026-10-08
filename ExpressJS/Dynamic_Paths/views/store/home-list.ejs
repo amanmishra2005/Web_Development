@@ -29,16 +29,7 @@
               <div class="mt-4 flex flex-wrap items-center gap-3">
                 <a href="/homes/<%= home.id %>" class="inline-flex items-center justify-center rounded-md bg-blue-500 px-4 py-2 font-semibold text-white hover:bg-blue-700">Details</a>
                 <a href="/reserve/<%= homeIndex %>" class="inline-flex items-center justify-center rounded-md bg-green-600 px-4 py-2 font-semibold text-white hover:bg-green-700">Book</a>
-                <form class="m-0" action="/favourites/<%= homeIndex %>" method="POST">
-                  <input type="hidden" name="returnTo" value="/homes">
-                  <button
-                    class="inline-flex items-center justify-center rounded-md px-4 py-2 font-semibold <%= favouriteIndexes.includes(homeIndex) ? 'bg-red-100 text-red-700' : 'bg-pink-100 text-red-700 hover:bg-pink-200' %>"
-                    type="submit"
-                    aria-label="<%= favouriteIndexes.includes(homeIndex) ? 'Already in favourites' : 'Add to favourites' %>">
-                    <span aria-hidden="true"><%= favouriteIndexes.includes(homeIndex) ? '♥' : '♡' %></span>
-                    <%= favouriteIndexes.includes(homeIndex) ? 'Saved to favourites' : 'Add to favourites' %>
-                  </button>
-                </form>
+                <%- include('../partials/favourite-button', { homeIndex, isFavourite: favouriteIndexes.includes(homeIndex), returnTo: '/homes' }) %>
               </div>
             </div>
           </div>
