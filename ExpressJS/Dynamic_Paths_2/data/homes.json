@@ -4,8 +4,8 @@
     "price": "5000",
     "location": "Gorakhpur",
     "rating": "5",
-    "description": "A spacious family stay with elegant interiors, a quiet balcony, and a warm, welcoming atmosphere for a relaxed vacation.",
     "photoUrl": "/images/house1.png",
+    "description": "A spacious family stay with elegant interiors, a quiet balcony, and a warm, welcoming atmosphere for a relaxed vacation.",
     "id": "0.04935090972613864"
   },
   {
@@ -34,5 +34,14 @@
     "description": "A stylish urban home with premium furnishings, a great location, and a relaxing ambiance for city travelers.",
     "photoUrl": "/images/house4.png",
     "id": "0.04279090972613864"
+  },
+  {
+    "houseName": "Bhawan",
+    "price": "3000",
+    "location": "Delhi",
+    "rating": "4.5",
+    "photoUrl": "/images/house5.png",
+    "description": "Best place to stay in Delhi with spacious balcony, personal swimming pool, vintage vibes.",
+    "id": "0.4927381444291715"
   }
 ]
