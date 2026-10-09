@@ -1,0 +1,72 @@
+// Core Modules
+const fs = require("fs");
+const path = require("path");
+const rootDir = require("../utils/pathUtil");
+
+module.exports = class Home {
+  constructor(houseName, price, location, rating, photoUrl, description) {
+    this.houseName = houseName;
+    this.price = price;
+    this.location = location;
+    this.rating = rating;
+    this.photoUrl = photoUrl;
+    this.description = description || "";
+  }
+
+  save(callback = () => {}) {
+    this.id = Math.random().toString();
+    Home.fetchAll((registeredHomes) => {
+      registeredHomes.push(this);
+      const homeDataPath = path.join(rootDir, "data", "homes.json");
+      fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), (error) => {
+        callback(error);
+      });
+    });
+  }
+
+  static fetchAll(callback) {
+    const homeDataPath = path.join(rootDir, "data", "homes.json");
+    fs.readFile(homeDataPath, (err, data) => {
+      callback(!err ? JSON.parse(data) : []);
+    });
+  }
+
+  static fetchBookings(callback) {
+    const bookingsPath = path.join(rootDir, "data", "bookings.json");
+    fs.readFile(bookingsPath, "utf8", (err, data) => {
+      if (err && err.code === "ENOENT") {
+        return callback(null, []);
+      }
+      if (err) {
+        return callback(err);
+      }
+
+      try {
+        callback(null, JSON.parse(data));
+      } catch (parseError) {
+        callback(parseError);
+      }
+    });
+  }
+
+  static saveBookings(bookings, callback) {
+    const bookingsPath = path.join(rootDir, "data", "bookings.json");
+    fs.writeFile(bookingsPath, JSON.stringify(bookings, null, 2), callback);
+  }
+
+  static findById(homeId, callback) {
+    this.fetchAll((homes) => {
+      const homeFound = homes.find((home) => home.id === homeId);
+      callback(homeFound);
+    });
+  }
+
+  static deleteById(homeId, callback) {
+    this.fetchAll((homes) => {
+      homes = homes.filter((home) => home.id !== homeId);
+      fs.writeFile(homeDataPath, JSON.stringify(homes), (error) => {
+        Favourite.deleteById(homeId, callback);
+      });
+    });
+  }
+};
