@@ -10,7 +10,7 @@
         <% registeredHomes.forEach(home => { %>
           <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 w-full max-w-sm">
             <img
-              src="<%= home.photoUrl || '/home-placeholder.svg' %>"
+              src="<%= home.photoUrl %>"
               alt="<%= home.houseName %>"
               class="w-full h-48 object-cover"
               onerror="this.onerror=null;this.src='/home-placeholder.svg';">
@@ -26,8 +26,12 @@
                   <span class="text-gray-700"><%= home.rating %></span>
                 </div>
               </div>
-              <button class="bg-blue-500 p-2">Edit</button>
-              <button class="bg-red-500 p-2">Delete</button>
+              <div class="mt-4 flex items-center gap-3">
+                <a href="/host/edit-home/<%=home.id%>?editing=true" class="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">Edit</a>
+                <form action="/host/delete-home/<%= home.id %>" method="POST">
+                  <button type="submit" class="rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-600">Delete</button>
+                </form>
+              </div>
             </div>
           </div>
         <% }) %>

@@ -49,6 +49,26 @@ module.exports = class Favourite {
     });
   }
 
+  static removeHomeIndex(homeIndex, callback) {
+    this.fetchAll((error, favourites) => {
+      if (error) {
+        return callback(error);
+      }
+
+      this.saveAll(
+        favourites.reduce((updatedFavourites, favouriteIndex) => {
+          if (favouriteIndex < homeIndex) {
+            updatedFavourites.push(favouriteIndex);
+          } else if (favouriteIndex > homeIndex) {
+            updatedFavourites.push(favouriteIndex - 1);
+          }
+          return updatedFavourites;
+        }, []),
+        callback,
+      );
+    });
+  }
+
   static saveAll(favourites, callback) {
     fs.writeFile(favouritesPath, JSON.stringify(favourites, null, 2), callback);
   }

@@ -2,7 +2,9 @@
 const fs = require("fs");
 const path = require("path");
 const rootDir = require("../utils/pathUtil");
+const Favourite = require("./favourite");
 
+const homeDataPath = path.join(rootDir, "data", "homes.json");
 module.exports = class Home {
   constructor(houseName, price, location, rating, photoUrl, description) {
     this.houseName = houseName;
@@ -14,10 +16,18 @@ module.exports = class Home {
   }
 
   save(callback = () => {}) {
-    this.id = Math.random().toString();
     Home.fetchAll((registeredHomes) => {
-      registeredHomes.push(this);
-      const homeDataPath = path.join(rootDir, "data", "homes.json");
+      // Edit Home Case
+      if (this.id) {
+        registeredHomes = registeredHomes.map((home) =>
+          home.id === this.id ? this : home,
+        );
+      }
+      // Add Home Case
+      else {
+        this.id = Math.random().toString();
+        registeredHomes.push(this);
+      }
       fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), (error) => {
         callback(error);
       });
@@ -25,9 +35,19 @@ module.exports = class Home {
   }
 
   static fetchAll(callback) {
-    const homeDataPath = path.join(rootDir, "data", "homes.json");
     fs.readFile(homeDataPath, (err, data) => {
-      callback(!err ? JSON.parse(data) : []);
+      if (err) {
+        if (err.code === "ENOENT") {
+          return callback([]);
+        }
+        return callback([], err);
+      }
+
+      try {
+        callback(JSON.parse(data));
+      } catch (parseError) {
+        callback([], parseError);
+      }
     });
   }
 
@@ -62,10 +82,23 @@ module.exports = class Home {
   }
 
   static deleteById(homeId, callback) {
-    this.fetchAll((homes) => {
-      homes = homes.filter((home) => home.id !== homeId);
+    this.fetchAll((homes, error) => {
+      if (error) {
+        return callback(error);
+      }
+
+      const homeIndex = homes.findIndex((home) => home.id === homeId);
+      if (homeIndex === -1) {
+        return callback(null);
+      }
+
+      homes.splice(homeIndex, 1);
       fs.writeFile(homeDataPath, JSON.stringify(homes), (error) => {
-        Favourite.deleteById(homeId, callback);
+        if (error) {
+          return callback(error);
+        }
+
+        Favourite.removeHomeIndex(homeIndex, callback);
       });
     });
   }
